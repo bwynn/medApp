@@ -1,0 +1,151 @@
+$light-grey: #eee;
+$med-grey: #d1d1d1;
+$border: 2px solid $med-grey;
+$border-radius: .2em;
+$green: #58B9BD;
+
+@mixin border-radius {
+  -webkit-border-radius: $border-radius;
+  -moz-border-radius: $border-radius;
+  border-radius: $border-radius;
+}
+
+
+@mixin span_validity {
+  margin-left: 1em;
+  padding: 6px 12px;
+  width: 93%;
+  text-align: center;
+  display: inline-block;
+  border: $border;
+  @include border-radius;
+}
+
+@mixin flex {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin circle {
+  height: 1em;
+  width: 1em;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid $green;
+}
+
+html, body {
+  height: 100%;
+  background-color: $light-grey;
+  font-size: 14px;
+}
+
+.form-header {
+  h3::before{
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    right: 5px;
+    @include circle;
+  }
+}
+
+.main-container {
+  background-color: white;
+  border-radius: .2em;
+  border: $border;
+  padding: 2em;
+  margin: 3em 0;
+  h3 {
+    margin-bottom: 20px;
+  }
+  button.btn-default[disabled] {
+    border: 2px solid $med-grey;
+  }
+  input {
+    padding: .5em;
+    width: 100%;
+    border: $border;
+    @include border-radius;
+    background-color: $light-grey;
+    &:focus {
+      outline: none;
+    }
+  }
+  input.ng-dirty.ng-invalid {
+      border: 1px solid red;
+  }
+  input.ng-dirty.ng-valid {
+    background-color: white;
+  }
+  span.valid-msg {
+    @include span_validity;
+    border-color: $green;
+  }
+  span.invalid-msg {
+    color: $med-grey;
+    @include span_validity;
+  }
+  .flexed {
+    @include flex;
+  }
+  .check {
+    width: auto;
+  }
+}
+
+#search {
+  h3 {
+    display: inline-block;
+  }
+  input {
+    background-color: inherit;
+  }
+  .results {
+    border: $border;
+    margin: 1em 0;
+    padding: 1em;
+    @include border-radius;
+    @include flex;
+    &:hover {
+      > a:hover {
+        background-color: $light-grey;
+      }
+    }
+    .option {
+      @include circle;
+      -webkit-align-self: center;
+      align-self: center;
+      margin-right: 1em;
+      border-color: $light-grey;
+    }
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      -webkit-transition: .3s all ease-in-out;
+      -moz-transition: .3s all ease-in-out;
+      transition: .3s all ease-in-out;
+      margin-left: auto;
+      width: 30px;
+      .chevron-anchor {
+        margin-top: 3em;
+        color: $med-grey;
+        margin-left: .7em;
+      }
+    }
+  }
+  .center {
+    @include flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+}
+
+.list-view {
+  h3 {
+    display: inline-block;
+  }
+}

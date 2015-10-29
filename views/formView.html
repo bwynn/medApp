@@ -1,0 +1,28 @@
+<section class="main-container col-lg-6 col-lg-push-3 col-md-8 col-md-push-2 col-sm-10 col-sm-push-1 col-xs-12">
+  <h3 class="text-center">Voluntary Participation</h3>
+  <p>Participation in this study is voluntary. If you do not wish to participate, there will be no penalty of any kind.</p>
+  <p>To confirm your intent to enroll in this study, please complete the form below.</p>
+  <form name="appForm" novalidate ng-submit="submitForm(user)">
+    <div class="form-group col-lg-6 col-sm-12">
+      <label for="first-name">First Name</label>
+      <input type="text" name="first-name" placeholder="John" required ng-model="user.firstname"/>
+    </div>
+    <div class="form-group col-lg-6 col-sm-12">
+      <label for="last-name">Last Name</label>
+      <input type="text" name="last-name" placeholder="Doe" required ng-model="user.lastname"/>
+    </div>
+    <div class="form-group col-lg-12">
+      <label for="birth-city">What city were you born in?</label>
+      <input type="text" name="birth-city" placeholder="City Name" required ng-model="user.city"/>
+    </div>
+    <div class="form-group col-lg-12">
+      <input type="checkbox" name="consent" required class="check" />
+      <label for="consent">I consent to participate in this study</label>
+    </div>
+    <div class="form-group flexed col-lg-12">
+      <button type="submit" class="btn btn-default" ng-disabled="appForm.$invalid">&lt;</button>
+      <span ng-show="appForm.$invalid" class="invalid-msg">Complete the form to continue enrollment</span>
+      <span ng-show="appForm.$valid" class="valid-msg">I understand and wish to continute with enrollment</span>
+    </div>
+  </form>
+</section>

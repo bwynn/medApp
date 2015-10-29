@@ -1,0 +1,24 @@
+<!Doctype html>
+<html ng-app="medApp">
+  <head>
+    <title>MEDCOMPANY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-route.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="medApp.js"></script>
+    <script src="/sites/evidation/controllers/mainCtrl.js"></script>
+    <script src="/sites/evidation/filters/filter.js"></script>
+    <link rel="stylesheet" href="/sites/evidation/assets/styles/main.css" />
+  </head>
+  <body ng-controller="mainCtrl" class="container">
+    <div class="row">
+      <div class="col-lg-6 col-lg-push-3 col-md-8 col-md-push-2 col-sm-10 col-sm-push-1 col-xs-12 form-header">
+        <h3 class="text-center form-header">MEDCOMPANY</h3>
+        <h5 class="text-center">Medcompany Efficacy Study</h5>
+      </div>
+    </div>
+    <section ng-view />
+    <a href="#" class="pull-left contact">Contact Us</a>
+  </body>
+</html>

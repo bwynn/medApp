@@ -1,0 +1,17 @@
+<section id="search" class="main-container col-lg-6 col-lg-push-3 col-md-8 col-md-push-2 col-sm-10 col-sm-push-1 col-xs-12">
+  <h3>Search for a physician or organization</h3>
+  <input type="text" placeholder="Search for a doctor, physician, or organization by name" ng-model="query" ng-trim="false" />
+    <div class="results" ng-repeat="result in results | filter: query | limitTo: 5" ng-show="query">
+        <div class="option"></div>
+        <div>
+          <h3>{{result.first_name}} {{result.last_name}}</h3><h3>{{result.organization_name}}</h3>
+          <p>We found {{result.first_name.length || result.organization_name.length}} results.</p>
+        </div>
+      <a href="/npi/{{result.npi}}" ng-click="viewDetails(result)">
+        <div class="chevron-anchor">&gt;</div>
+      </a>
+    </div>
+  <div class="center" ng-show="query">
+    <a ng-repeat="page in results | pageCount:pageSize" class="btn btn-default">{{$index + 1}}</a>
+  </div>
+</section>
